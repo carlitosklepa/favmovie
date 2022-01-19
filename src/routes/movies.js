@@ -26,6 +26,7 @@ router.get('/', async (req, res) => {
 router.get('/delete/:id', async (req, res) => {
   const { id } = req.params;
   await pool.query('DELETE FROM movies WHERE ID = ?', [id]);
+  req.flash('success', 'Película eliminada exitosamente');
   res.redirect('/movies');
 })
 
@@ -44,6 +45,7 @@ router.post('/edit/:id', async (req, res) => {
     description
   };
   await pool.query('UPDATE movies set ? WHERE id = ?', [newMovie, id]);
+  req.flash('success', 'Película editada exitosamente');
   res.redirect('/movies');
 })
 
