@@ -2,8 +2,8 @@ module.exports = {
 
   database: {
     host: 'localhost',
-    user: 'root',
-    password: 'root',
+    user: 'sqluser',
+    password: 'password',
     database: 'database_movie'
   }
 };
